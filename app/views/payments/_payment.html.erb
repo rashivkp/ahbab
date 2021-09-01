@@ -1,5 +1,12 @@
 <tr>
   <td> <%= payment.year %> </td>
   <td> <%= payment.amount %> </td>
+  <td>
+    <%= link_to "Delete", ahbab_payment_path(payment.ahbab, payment),
+      method: :delete,
+      data: {confirm: "Are you sure ?" },
+      class: 'btn btn-danger'
+      %>
+  </td>
 </tr>
 

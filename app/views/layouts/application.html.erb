@@ -26,15 +26,19 @@
         <li class="nav-item">
           <%= link_to "New Ahbab", new_ahbab_path, class: 'nav-link' %>
         </li>
+        <li class="nav-item">
+          <%= link_to "Due Ahbabs", ahbabs_due_path, class: 'nav-link' %>
+        </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <form class="d-flex" method="get" action="<%= root_path %>">
+        <input class="form-control me-2" name="q" type="search" placeholder="Search" aria-label="Search">
+        <input name="show_all" value="<%= params[:show_all] %>" type="hidden">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>
   </div>
 </nav>
-<div class="container-md">
+<div class="container">
     <%= yield %>
     <div>
   </body>
