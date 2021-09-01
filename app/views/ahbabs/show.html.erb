@@ -1,0 +1,42 @@
+<h1><%= @ahbab.name + ' - ' + @ahbab.address %>
+</h1>
+<% if @ahbab.active %>
+    <span class="badge bg-success">Active</span>
+<% else %>
+    <span class="badge bg-danger">Inactive</span>
+<% end %>
+<p>Amount: <%= @ahbab.amount %></p>
+
+<%= link_to "Edit", edit_ahbab_path(@ahbab), class: 'btn btn-info' %>
+<%= link_to "Delete", ahbab_path(@ahbab),
+    method: :delete,
+    data: {confirm: "Are you sure ?" },
+    class: 'btn btn-danger'
+%>
+<% if @ahbab.active %>
+    <%= link_to "Deactivate", ahbab_toggle_activation_path(@ahbab),
+        method: :post,
+        data: {confirm: "Are you sure to deactivate ?"},
+        class: 'btn btn-warning'
+    %>
+<% else %>
+    <%= link_to "Activate", ahbab_toggle_activation_path(@ahbab),
+        method: :post,
+        data: {confirm: "Are you sure to Activate ?"},
+        class: 'btn btn-primary'
+    %>
+<% end %>
+<br>
+<br>
+
+<h3>Payments</h3>
+<table class="table">
+    <thead>
+        <th>Year</th>
+        <th>Payment</th>
+    </thead>
+    <%= render @ahbab.payments %>
+</table>
+
+<h2>Add Payment </h2>
+<%= render "payments/form" %>

@@ -1,0 +1,14 @@
+<%= form_with model: [@ahbab, @ahbab.payments.build] do |form| %>
+    <p>
+        <%= form.label :amount %><br>
+        <%= form.text_field :amount %><br>
+    </p>
+    <p>
+        <%= form.label :year %><br>
+        <%= form.select(:year, [2021, 2020]) %><br>
+    </p>
+    <p>
+        <%= form.submit %>
+    </p>
+<% end %>
+

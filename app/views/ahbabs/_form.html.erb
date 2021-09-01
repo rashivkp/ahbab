@@ -1,0 +1,30 @@
+<%= form_with model: @ahbab do |form| %>
+    <div>
+        <%= form.label :name %><br>
+        <%= form.text_field :name %>
+        <% @ahbab.errors.full_messages_for(:name).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.label :address %><br>
+        <%= form.text_field :address %>
+        <% @ahbab.errors.full_messages_for(:address).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.label :amount %><br>
+        <%= form.text_field :amount %>
+        <% @ahbab.errors.full_messages_for(:amount).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>
+
