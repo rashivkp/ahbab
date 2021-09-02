@@ -1,24 +1,11 @@
-# README
+# Ahbab
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Record yearly payment status of Ahbabs.
 
-Things you may want to cover:
+## Meaning of Ahbab
 
-* Ruby version
+In Arabic language Ahbab is the plural of Habeeb "beloved one".
 
-* System dependencies
+## About
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This is just an attempt to learn RoR.
