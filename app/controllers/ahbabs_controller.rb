@@ -72,9 +72,11 @@ class AhbabsController < ApplicationController
     redirect_to root_path
   end
 
-  def list_due_ahbabs
+  def list_due
     paid = Ahbab.joins(:payments).group('id').having('payments.year = ?', Date.today.year)
-    @ahbabs = Ahbab.where("id NOT in (?)", paid.ids).order(:name).page(params[:page])
+    @ahbabs = Ahbab.where("id NOT in (?)", paid.ids)
+      .where(active: true)
+      .order(:name).page(params[:page])
     render 'index'
   end
 

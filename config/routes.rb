@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "ahbabs#index"
 
-  get 'ahbabs/due', to: "ahbabs#list_due_ahbabs"
+  get 'ahbabs/due', to: "ahbabs#list_due"
   resources :ahbabs do
     post '/toggle-activation', to: "ahbabs#toggle_activation"
     post '/mark-received', to: "ahbabs#mark_payment_received"

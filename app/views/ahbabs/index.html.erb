@@ -29,30 +29,44 @@
                 <% end %>
             </td>
             <td>
-                <% if ahbab.active %>
-                    <%= link_to "Deactivate", ahbab_toggle_activation_path(ahbab),
-                        method: :post,
-                        data: {confirm: "Are you sure to Deactivate ?"},
-                        class: 'btn btn-warning'
-                    %>
-                    <% else %>
-                        <%= link_to "Activate", ahbab_toggle_activation_path(ahbab),
-                            method: :post,
-                            data: {confirm: "Are you sure to Activate ?"},
-                            class: 'btn btn-warning'
-                        %>
-                <% end %>
-                <a class="btn btn-info" href="<%= edit_ahbab_path(ahbab) %>"><i class="fa fa-user-edit"></i> Edit</a>
-                <%= link_to "Delete", ahbab_path(ahbab),
-                    method: :delete,
-                    data: {confirm: "Are you sure ?" },
-                    class: 'btn btn-danger'
-                %>
-                <%= link_to "Mark Received", ahbab_mark_received_path(ahbab),
-                    method: :post,
-                    data: {confirm: "Are you sure to mark payment received for this year?"},
-                    class: 'btn btn-warning'
-                %>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Actions
+                    </button>
+                    <ul class="dropdown-menu" area-labeledby="dropdownMenuButton1">
+                        <li>
+                            <%= link_to "Mark Received", ahbab_mark_received_path(ahbab),
+                                method: :post,
+                                data: {confirm: "Are you sure to mark payment received for this year?"},
+                                class: 'dropdown-item' %>
+                        </li>
+                        <li>
+                            <% if ahbab.active %>
+                                <%= link_to "Deactivate", ahbab_toggle_activation_path(ahbab),
+                                    method: :post,
+                                    data: {confirm: "Are you sure to Deactivate ?"},
+                                    class: 'dropdown-item'
+                                %>
+                        <% else %>
+                            <%= link_to "Activate", ahbab_toggle_activation_path(ahbab),
+                                method: :post,
+                                data: {confirm: "Are you sure to Activate ?"},
+                                class: 'dropdown-item'
+                            %>
+                    <% end %>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="<%= edit_ahbab_path(ahbab) %>"><i class="fa fa-user-edit"></i> Edit</a>
+                        </li>
+                        <li>
+                            <%= link_to "Delete", ahbab_path(ahbab),
+                                method: :delete,
+                                data: {confirm: "Are you sure ?" },
+                                class: 'dropdown-item'
+                            %>
+                        </li>
+                    </ul>
+                    <div class="dropdown">
             </td>
         </tr>
     <% end %>
